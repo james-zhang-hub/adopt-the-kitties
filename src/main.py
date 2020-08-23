@@ -1,6 +1,9 @@
-import kitty_status_service
-from austin_animal_data_service import get_animal_outcome_data
-from sms_service import send_kitties_update_sms
+from dotenv import load_dotenv
+from src import kitty_status_service
+from src.austin_animal_data_service import get_animal_outcome_data
+from src.sms_service import send_kitties_update_sms
+
+load_dotenv()
 
 KITTY_IDS = {'A821879': 'Jackson',
              'A821878': 'Betty'}

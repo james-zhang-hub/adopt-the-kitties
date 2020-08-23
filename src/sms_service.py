@@ -1,14 +1,12 @@
+import os
 import random
 
 from twilio.rest import Client
-
-ACCOUNT_SID = 'AC04e4248c16def4ac62385210c45e7091'
-AUTH_TOKEN = '1f97c81e3c9a2b4a545adfc37dccc628'
-TWILIO_NUMBER = '+17324105096'
-
+ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
+AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
+TWILIO_NUMBER = os.getenv('TWILIO_NUMBER')
 
 def send_kitties_update_sms(recipient_number, kitty_statuses):
-    test = __get_random_image_url__()
     sms_message = 'Hey mamacita, here\'s an update from Project Adopt the Kitties:\n\n'
     for kitty_status in kitty_statuses:
         sms_message += __parse_kitty_status_to_sms__(kitty_status)
@@ -37,5 +35,5 @@ def __parse_kitty_status_to_sms__(kitty_status):
 
 
 def __get_random_image_url__():
-    lines = open('./assets/photo_urls').read().splitlines()
+    lines = open('../assets/photo_urls').read().splitlines()
     return random.choice(lines)
