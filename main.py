@@ -9,12 +9,12 @@ from src.austin_animal_data_service import get_animal_outcome_data
 from src.sms_service import send_kitties_update_sms
 
 
-KITTY_IDS = {'A821879': 'Jackson',
-             'A821878': 'Betty'}
-RECIPIENT_NUMBERS = ['+16236806997', '+12145572892']
+# KITTY_IDS = {'A821879': 'Jackson',
+#              'A821878': 'Betty'}
+# RECIPIENT_NUMBERS = ['+16236806997', '+12145572892']
 
-# KITTY_IDS = json.loads(sys.argv[1])
-# RECIPIENT_NUMBERS = sys.argv[2].split(',')
+KITTY_IDS = json.loads(sys.argv[1])
+RECIPIENT_NUMBERS = sys.argv[2].split(',')
 
 animal_outcomes = get_animal_outcome_data()
 
